@@ -9,13 +9,13 @@
         $note_content = $_POST['note_content'];
 
         date_default_timezone_set('Asia/Kolkata');
-        $date_time = explode(" ",date('d-m-y h:i:s'));
-        $note_id = date('dmyhis');
+        $date_time = explode(" ",date('d-m-y h:i:s a'));
+        $note_id = date('dmyhisa');
 
         $postData = [
             'name'=>'Sarthak',
             // 'notes'=>[['noteID'=>$note_id, 'date'=>$date_time[0], 'time'=>$date_time[1], 'title'=>$note_title, 'content'=>$note_content]],
-            'notes'=>[$note_id => ['date'=>$date_time[0], 'time'=>$date_time[1], 'title'=>$note_title, 'content'=>$note_content]],
+            'notes'=>[$note_id => ['date'=>$date_time[0], 'time'=>$date_time[1].' '.$date_time[2], 'title'=>$note_title, 'content'=>$note_content]],
         ];
         $refTable = "Notes_Keeper";
         $postRef = $database
