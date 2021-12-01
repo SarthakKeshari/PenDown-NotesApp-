@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid d-flex justify-content-between">
         <img src="img/icon.png" alt="" width="40px">
@@ -9,6 +13,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <hr>
+        <?php
+            if(isset($_SESSION['verified_user_id']))
+            {
+        ?>
         <div class="row d-flex justify-content-center w-100">
             <form class="col-sm-12 col-md-12 col-lg-6">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -36,6 +44,21 @@
             <a class="nav-link disabled">Disabled</a>
             </li>
         </ul>
+        <?php
+            }
+            else
+            {
+                ?>
+                <div class="btn-group ms-auto float-end" role="group" aria-label="Basic checkbox toggle button group" style="z-index: 100;">
+                    <button class="btn-check" id="btncheck1" autocomplete="off"></button>
+                    <label class="btn btn-outline-dark px-4" for="btncheck1">Login</label>
+
+                    <button class="btn-check" id="btncheck1" autocomplete="off"></button>
+                    <label class="btn btn-outline-dark px-4" for="btncheck1">Register</label>
+                </div>
+                <?php
+            }
+        ?>
         </div>
     </div>
 </nav>
